@@ -35,7 +35,7 @@ export const ResetPasswordEmail = ({
   locale = "en",
   translations,
   resetUrl,
-  appUrl = "https://videofly.app",
+  appUrl = "https://seedance2.in",
 }: ResetPasswordEmailProps) => {
   const currentYear = new Date().getFullYear();
 
@@ -66,7 +66,7 @@ export const ResetPasswordEmail = ({
                 color: "#18181b",
               }}
             >
-              VideoFly
+              Seedance2
             </Text>
           </Section>
 

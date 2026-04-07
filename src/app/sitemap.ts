@@ -65,7 +65,7 @@ async function scanPages(
           || '/';                                 // 根路径
 
         // 跳过 dashboard、admin 等不需要 SEO 的页面
-        const skipRoutes = ['dashboard', 'admin', 'auth', 'login', 'register', 'settings'];
+        const skipRoutes = ['dashboard', 'admin', 'auth', 'login', 'register', 'settings', 'og-image'];
         if (skipRoutes.some(route => routePath.includes(route))) {
           continue;
         }
@@ -105,7 +105,7 @@ async function scanPages(
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://videofly.app";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://seedance2.in";
 
   // 自动扫描所有页面
   const appDir = join(process.cwd(), 'src', 'app', '[locale]');

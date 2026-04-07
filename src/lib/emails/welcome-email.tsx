@@ -37,7 +37,7 @@ export const WelcomeEmail = ({
   name = "",
   locale = "en",
   translations,
-  appUrl = "https://videofly.app",
+  appUrl = "https://seedance2.in",
 }: WelcomeEmailProps) => {
   const currentYear = new Date().getFullYear();
 
@@ -68,7 +68,7 @@ export const WelcomeEmail = ({
                 color: "#18181b",
               }}
             >
-              VideoFly
+              Seedance2
             </Text>
           </Section>
 

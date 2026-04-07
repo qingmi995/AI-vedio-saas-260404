@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: PageMetadataProps) {
   const { locale } = await params;
 
   const titles = {
-    en: "AI Video Generator - Create Stunning Videos with Sora 2 & Veo 3.1",
-    zh: "AI视频生成器 - 使用Sora 2和Veo 3.1创建精彩视频",
+    en: "Seedance2 - AI Video Generator - Create Stunning Videos with Sora 2 & Veo 3.1",
+    zh: "Seedance2 - AI视频生成器 - 使用Sora 2和Veo 3.1创建精彩视频",
   };
 
   const descriptions = {

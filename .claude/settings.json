@@ -1,4 +1,28 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Read(//Applications/**)",
+      "Bash(brew list:*)",
+      "Bash(npm list:*)",
+      "Read(//var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/**)",
+      "Read(//var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/**)",
+      "Bash(mdfind -name \"*codex*\")",
+      "Bash(npm cache:*)",
+      "Bash(npm --version)",
+      "Bash(npm install:*)",
+      "Bash(sudo chown:*)",
+      "Bash(codex --version)",
+      "Read(//Users/lxm/.nvm/versions/node/v24.14.1/bin/**)",
+      "Bash(curl -s http://localhost:3001/api/auth/get-session)",
+      "Bash(curl -s http://localhost:3001/api/auth/social)",
+      "Bash(npm ls:*)",
+      "Read(//Users/lxm/.nvm/versions/node/v24.14.1/lib/node_modules/@moonshot-ai/kimi-agent-sdk/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/api/auth/get-session)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/api/auth/social)"
+    ]
+  },
   "project": {
     "name": "VideoFly",
     "description": "AI Video Generation Platform",
@@ -18,7 +42,13 @@
     "semicolons": true,
     "trailingComma": "es5",
     "tabWidth": 2,
-    "importOrder": ["react", "next", "@videofly/*", "~/", "./"]
+    "importOrder": [
+      "react",
+      "next",
+      "@videofly/*",
+      "~/",
+      "./"
+    ]
   },
   "paths": {
     "api": "apps/nextjs/src/app/api/v1",

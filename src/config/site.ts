@@ -23,9 +23,9 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "VideoFly",
-  description: "AI Video Generation Platform - Create stunning videos with Sora 2, Veo 3.1, and more",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://videofly.app",
+  name: "Seedance2",
+  description: "AI-powered short video creation platform - Create stunning videos with Sora 2, Veo 3.1, and more",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://seedance2.in",
   ogImage: "/og.png",
   links: {},
   auth: {

@@ -39,10 +39,10 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-const PENDING_PROMPT_KEY = "videofly_pending_prompt";
-const PENDING_IMAGE_KEY = "videofly_pending_image";
-const NOTIFICATION_ASKED_KEY = "videofly_notification_asked";
-const TOOL_PREFILL_KEY = "videofly_tool_prefill";
+const PENDING_PROMPT_KEY = "clip_magic_pending_prompt";
+const PENDING_IMAGE_KEY = "clip_magic_pending_image";
+const NOTIFICATION_ASKED_KEY = "clip_magic_notification_asked";
+const TOOL_PREFILL_KEY = "clip_magic_tool_prefill";
 
 function normalizeGeneratorMode(mode?: string): GenerationMode {
   if (mode === "image-to-video" || mode === "i2v") {

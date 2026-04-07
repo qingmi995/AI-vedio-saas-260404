@@ -1,11 +1,11 @@
 {
-  "name": "VideoFly",
-  "short_name": "VideoFly",
-  "description": "AI-powered video generation platform",
+  "name": "Seedance2",
+  "short_name": "Seedance2",
+  "description": "AI-powered short video creation platform - Sora 2, Veo 3.1, and more",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0f0d",
-  "theme_color": "#1a7a42",
+  "theme_color": "#7c3aed",
   "icons": [
     {
       "src": "/icon-192.png",

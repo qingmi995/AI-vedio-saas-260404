@@ -1,8 +1,8 @@
 import type { Locale } from "@/config/i18n-config";
 
 export const metadata = {
-    title: "Privacy Policy - VideoFly",
-    description: "Privacy Policy for VideoFly",
+    title: "Privacy Policy - Seedance2",
+    description: "Privacy Policy for Seedance2",
 };
 
 export default async function PrivacyPage({
@@ -22,7 +22,7 @@ export default async function PrivacyPage({
 
                         <h2>1. 引言</h2>
                         <p>
-                            VideoFly（"我们"）非常重视您的隐私。本隐私政策说明了当您使用我们的服务时，我们如何收集、使用、披露和保护您的信息。
+                            Seedance2（"我们"）非常重视您的隐私。本隐私政策说明了当您使用我们的服务时，我们如何收集、使用、披露和保护您的信息。
                         </p>
 
                         <h2>2. 我们收集的信息</h2>
@@ -76,7 +76,7 @@ export default async function PrivacyPage({
 
                         <h2>9. 联系我们</h2>
                         <p>
-                            如果您对本隐私政策有任何疑问，请联系我们：privacy@videofly.app
+                            如果您对本隐私政策有任何疑问，请联系我们：privacy@seedance2.in
                         </p>
                     </>
                 ) : (
@@ -86,7 +86,7 @@ export default async function PrivacyPage({
 
                         <h2>1. Introduction</h2>
                         <p>
-                            VideoFly ("we" or "us") values your privacy. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our services.
+                            Seedance2 ("we" or "us") values your privacy. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our services.
                         </p>
 
                         <h2>2. Information We Collect</h2>
@@ -140,7 +140,7 @@ export default async function PrivacyPage({
 
                         <h2>9. Contact Us</h2>
                         <p>
-                            If you have any questions about this Privacy Policy, please contact us at: privacy@videofly.app
+                            If you have any questions about this Privacy Policy, please contact us at: privacy@seedance2.in
                         </p>
                     </>
                 )}

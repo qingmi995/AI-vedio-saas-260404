@@ -1,8 +1,8 @@
 import type { Locale } from "@/config/i18n-config";
 
 export const metadata = {
-    title: "Terms of Service - VideoFly",
-    description: "Terms of Service for VideoFly",
+    title: "Terms of Service - Seedance2",
+    description: "Terms of Service for Seedance2",
 };
 
 export default async function TermsPage({
@@ -22,12 +22,12 @@ export default async function TermsPage({
 
                         <h2>1. 接受条款</h2>
                         <p>
-                            欢迎使用 VideoFly（"我们"、"我们的"或"本平台"）。访问或使用我们的网站和服务，即表示您同意受这些服务条款（"条款"）的约束。如果您不同意这些条款的任何部分，您就没有权利使用我们的服务。
+                            欢迎使用 Seedance2（"我们"、"我们的"或"本平台"）。访问或使用我们的网站和服务，即表示您同意受这些服务条款（"条款"）的约束。如果您不同意这些条款的任何部分，您就没有权利使用我们的服务。
                         </p>
 
                         <h2>2. 服务描述</h2>
                         <p>
-                            VideoFly 是一个 AI 驱动的视频生成平台，允许用户通过文本、图片等输入生成视频内容。我们要努力提供高质量的服务，但不保证生成的视频总是完全符合您的期望。
+                            Seedance2 是一个 AI 驱动的视频生成平台，允许用户通过文本、图片等输入生成视频内容。我们要努力提供高质量的服务，但不保证生成的视频总是完全符合您的期望。
                         </p>
 
                         <h2>3. 用户账户</h2>
@@ -61,7 +61,7 @@ export default async function TermsPage({
 
                         <h2>8. 责任限制</h2>
                         <p>
-                            在法律允许的最大范围内，VideoFly 不对任何间接、偶然、特殊、后果性或惩罚性损害承担责任，包括但不限于利润损失、数据丢失或商誉受损。
+                            在法律允许的最大范围内，Seedance2 不对任何间接、偶然、特殊、后果性或惩罚性损害承担责任，包括但不限于利润损失、数据丢失或商誉受损。
                         </p>
 
                         <h2>9. 条款变更</h2>
@@ -71,7 +71,7 @@ export default async function TermsPage({
 
                         <h2>10. 联系我们</h2>
                         <p>
-                            如果您对这些条款有任何疑问，请联系我们：support@videofly.app
+                            如果您对这些条款有任何疑问，请联系我们：support@seedance2.in
                         </p>
                     </>
                 ) : (
@@ -81,12 +81,12 @@ export default async function TermsPage({
 
                         <h2>1. Acceptance of Terms</h2>
                         <p>
-                            Welcome to VideoFly ("we," "our," or "us"). By accessing or using our website and services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to any part of these Terms, you do not have permission to access the Service.
+                            Welcome to Seedance2 ("we," "our," or "us"). By accessing or using our website and services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to any part of these Terms, you do not have permission to access the Service.
                         </p>
 
                         <h2>2. Description of Service</h2>
                         <p>
-                            VideoFly is an AI-powered video generation platform that allows users to create video content from text, images, and other inputs. We strive to provide high-quality services but do not guarantee that generated videos will always meet your exact expectations.
+                            Seedance2 is an AI-powered video generation platform that allows users to create video content from text, images, and other inputs. We strive to provide high-quality services but do not guarantee that generated videos will always meet your exact expectations.
                         </p>
 
                         <h2>3. User Accounts</h2>
@@ -120,7 +120,7 @@ export default async function TermsPage({
 
                         <h2>8. Limitation of Liability</h2>
                         <p>
-                            To the maximum extent permitted by law, VideoFly shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill.
+                            To the maximum extent permitted by law, Seedance2 shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill.
                         </p>
 
                         <h2>9. Changes to Terms</h2>
@@ -130,7 +130,7 @@ export default async function TermsPage({
 
                         <h2>10. Contact Us</h2>
                         <p>
-                            If you have any questions about these Terms, please contact us at: support@videofly.app
+                            If you have any questions about these Terms, please contact us at: support@seedance2.in
                         </p>
                     </>
                 )}
