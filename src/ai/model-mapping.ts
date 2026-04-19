@@ -187,7 +187,11 @@ function kieParamsTransformer(
 
   // Transform common parameters
   if (params.aspectRatio) {
-    if (internalModelId === "veo-3.1" || internalModelId === "seedance-1.5-pro") {
+    if (
+      internalModelId === "veo-3.1" ||
+      internalModelId === "seedance-1.5-pro" ||
+      internalModelId === "seedance-2"
+    ) {
       baseInput.aspect_ratio = params.aspectRatio;
     } else {
       baseInput.aspect_ratio = transformAspectRatio(params.aspectRatio, "kie");
@@ -207,9 +211,13 @@ function kieParamsTransformer(
     else if (internalModelId === "wan2.6") {
       baseInput.image_urls = imageUrls;
     }
-    // Seedance uses input_urls
+    // Seedance 1.5 uses input_urls
     else if (internalModelId === "seedance-1.5-pro") {
       baseInput.input_urls = imageUrls;
+    }
+    // Seedance 2 uses reference_image_urls
+    else if (internalModelId === "seedance-2") {
+      baseInput.reference_image_urls = imageUrls;
     }
     // Veo 3.1 uses imageUrls (camelCase)
     else if (internalModelId === "veo-3.1") {
@@ -252,6 +260,16 @@ function kieParamsTransformer(
       normalizeQuality(params.quality, "kie", internalModelId) || "720p";
     baseInput.fixed_lens = params.fixedLens ?? true;
     baseInput.generate_audio = params.generateAudio ?? false;
+  }
+
+  // Seedance 2 specific parameters
+  if (internalModelId === "seedance-2") {
+    baseInput.resolution =
+      normalizeQuality(params.quality, "kie", internalModelId) || "720p";
+    baseInput.duration = Number(params.duration || 15);
+    baseInput.generate_audio = params.generateAudio ?? true;
+    baseInput.web_search = params.webSearch ?? false;
+    baseInput.nsfw_checker = params.nsfwChecker ?? true;
   }
 
   return {
@@ -451,6 +469,21 @@ export const MODEL_MAPPINGS: Record<string, ModelMapping> = {
   },
 
   // -------------------------------------------------------------------------
+  // Seedance 2 (KIE)
+  // -------------------------------------------------------------------------
+  "seedance-2": {
+    internalId: "seedance-2",
+    displayName: "Seedance 2",
+    providers: {
+      kie: {
+        providerModelId: "bytedance/seedance-2",
+        supported: true,
+        transformParams: kieParamsTransformer,
+      },
+    },
+  },
+
+  // -------------------------------------------------------------------------
   // Seedance 1.0 Pro Fast (APImart only)
   // -------------------------------------------------------------------------
   "seedance-1.0-pro-fast": {
@@ -506,6 +539,9 @@ const MODEL_MODE_SUPPORT: Record<
     evolink: ["text-to-video", "image-to-video"],
     kie: ["text-to-video", "image-to-video"],
     apimart: ["text-to-video", "image-to-video"],
+  },
+  "seedance-2": {
+    kie: ["text-to-video", "image-to-video", "reference-to-video"],
   },
   "seedance-1.0-pro-fast": {
     apimart: ["text-to-video", "image-to-video"],

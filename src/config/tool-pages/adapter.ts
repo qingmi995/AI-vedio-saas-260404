@@ -43,6 +43,7 @@ function getModelColor(modelId: string): string {
     "wan2.6": "#8b5cf6",
     "seedance-1.5": "#ec4899",
     "seedance-1.5-pro": "#ec4899",
+    "seedance-2": "#14b8a6",
     "kling-2": "#f59e0b",
   };
   return colorMap[modelId] || "#71717a";

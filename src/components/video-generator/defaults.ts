@@ -63,6 +63,24 @@ export const DEFAULT_VIDEO_MODELS: VideoModel[] = [
     supportsAudio: true,
   },
   {
+    id: "seedance-2",
+    name: "Seedance 2",
+    icon: "https://videocdn.pollo.ai/web-cdn/pollo/production/cm3po9yyf0003oh0c2iyt8ajy/image/1754894158793-1e7ef687-c3c1-4f44-8b06-d044a8121f66.svg",
+    color: "#14b8a6",
+    description: "Advanced text and reference image to video",
+    maxDuration: "15 sec",
+    creditCost: 24,
+    durations: ["4s", "5s", "6s", "7s", "8s", "9s", "10s", "11s", "12s", "13s", "14s", "15s"],
+    aspectRatios: ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
+    resolutions: ["480P", "720P", "1080P"],
+    maxImages: 5,
+    imageConstraints: {
+      maxSizeMB: 30,
+      formats: ["jpg", "jpeg", "png", "webp"],
+    },
+    supportsAudio: true,
+  },
+  {
     id: "seedance-1.0-pro-fast",
     name: "Seedance 1.0 Fast",
     icon: "https://videocdn.pollo.ai/web-cdn/pollo/production/cm3po9yyf0003oh0c2iyt8ajy/image/1754894158793-1e7ef687-c3c1-4f44-8b06-d044a8121f66.svg",
@@ -167,6 +185,7 @@ export const DEFAULT_VIDEO_MODES: GeneratorMode[] = [
     // Sora, Wan, Veo, Seedance
     supportedModels: [
       "seedance-1.5-pro",
+      "seedance-2",
       "seedance-1.0-pro-fast",
       "seedance-1.0-pro-quality",
       "sora-2",
@@ -191,7 +210,7 @@ export const DEFAULT_VIDEO_MODES: GeneratorMode[] = [
     uploadType: "characters",
     description: "Generate video using character reference images or videos",
     // Seedance reference mode
-    supportedModels: ["seedance-1.5-pro"],
+    supportedModels: ["seedance-1.5-pro", "seedance-2"],
     // REFERENCE mode only supports 16:9 (Veo), Wan has more options but switches dynamically
     aspectRatios: ["16:9"],
     // REFERENCE mode fixed 8s (Veo)

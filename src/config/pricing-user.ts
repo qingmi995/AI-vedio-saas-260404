@@ -264,6 +264,14 @@ export const VIDEO_MODEL_PRICING: Record<string, VideoModelPricing> = {
     enabled: true,
   },
 
+  /** Seedance 2 - Kie.ai，按秒计费 */
+  "seedance-2": {
+    baseCredits: 0,
+    perSecond: 6,
+    qualityMultiplier: 2,
+    enabled: true,
+  },
+
   /** Seedance 1.0 Pro Fast - 快速生成（APImart） */
   "seedance-1.0-pro-fast": {
     baseCredits: 0,

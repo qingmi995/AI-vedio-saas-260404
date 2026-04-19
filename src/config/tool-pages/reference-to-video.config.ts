@@ -33,7 +33,7 @@ export const referenceToVideoConfig: ToolPageConfig = {
     },
 
     models: {
-      available: ["seedance-1.5-pro"],
+      available: ["seedance-1.5-pro", "seedance-2"],
       default: "seedance-1.5-pro",
     },
 

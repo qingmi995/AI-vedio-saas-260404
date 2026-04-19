@@ -12,13 +12,15 @@ import { db } from "@/db";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-const email = process.argv[2] || process.env.ADMIN_EMAIL;
+const emailArg = process.argv[2] || process.env.ADMIN_EMAIL;
 
-if (!email) {
+if (!emailArg) {
   console.error("Usage: pnpm script:set-admin <email>");
   console.error("Or set ADMIN_EMAIL in .env.local");
   process.exit(1);
 }
+
+const email = emailArg;
 
 async function run() {
   const [user] = await db

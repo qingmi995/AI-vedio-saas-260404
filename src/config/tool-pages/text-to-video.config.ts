@@ -34,7 +34,7 @@ export const textToVideoConfig: ToolPageConfig = {
     },
 
     models: {
-      available: ["seedance-1.5-pro", "seedance-1.0-pro-fast", "seedance-1.0-pro-quality"],
+      available: ["seedance-1.5-pro", "seedance-2", "seedance-1.0-pro-fast", "seedance-1.0-pro-quality"],
       default: "seedance-1.5-pro",
     },
 
@@ -53,7 +53,7 @@ export const textToVideoConfig: ToolPageConfig = {
       showOutputNumber: false,
       showAudioGeneration: true,
 
-      durations: [2, 4, 5, 6, 8, 10, 12],
+      durations: [2, 4, 5, 6, 8, 10, 12, 15],
       aspectRatios: ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
     },
   },

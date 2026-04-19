@@ -196,6 +196,17 @@ export const CREDITS_CONFIG = {
             aspectRatios: ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
             qualities: ["480P", "720P", "1080P"],
           },
+          "seedance-2": {
+            id: "seedance-2",
+            name: "Seedance 2",
+            provider: "kie" as const,
+            description: "models.seedance2.description",
+            supportImageToVideo: true,
+            maxDuration: 15,
+            durations: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            aspectRatios: ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
+            qualities: ["480P", "720P", "1080P"],
+          },
           "seedance-1.0-pro-fast": {
             id: "seedance-1.0-pro-fast",
             name: "Seedance 1.0 Pro Fast",
@@ -370,6 +381,16 @@ export function calculateModelCredits(
       let perSecond = 4; // 720p 有音频
       if (isHighQuality) {
         perSecond = 8; // 1080p 有音频
+      }
+      credits = params.duration * perSecond;
+      break;
+    }
+
+    case "seedance-2": {
+      // Seedance 2: Kie.ai 按秒计费
+      let perSecond = 6;
+      if (isHighQuality) {
+        perSecond = 12;
       }
       credits = params.duration * perSecond;
       break;

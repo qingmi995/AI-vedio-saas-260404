@@ -149,6 +149,14 @@ function calculateSeedanceCredits(params: CreditCalculationParams): number {
   return Math.ceil(duration * perSecond) * params.outputNumber;
 }
 
+function calculateSeedance2Credits(params: CreditCalculationParams): number {
+  const duration = parseDuration(params.duration) || 15;
+  const isHighRes = parseResolution(params.resolution) >= 1080;
+  const perSecond = isHighRes ? 12 : 6;
+
+  return Math.ceil(duration * perSecond) * params.outputNumber;
+}
+
 // ============================================================================
 // Main Calculator
 // ============================================================================
@@ -183,6 +191,9 @@ export function calculateVideoCredits(params: CreditCalculationParams): number {
 
     case "seedance-1.5-pro":
       return calculateSeedanceCredits(params);
+
+    case "seedance-2":
+      return calculateSeedance2Credits(params);
 
     default:
       // 默认计算：基础积分 × 输出数量
@@ -274,6 +285,13 @@ export function getCreditRangeText(model: VideoModel): string {
     maxCredits = calculateVideoCredits({
       model,
       duration: "12s",
+      resolution: "1080P",
+      outputNumber: 1,
+    });
+  } else if (model.id === "seedance-2") {
+    maxCredits = calculateVideoCredits({
+      model,
+      duration: "15s",
       resolution: "1080P",
       outputNumber: 1,
     });
