@@ -1,8 +1,8 @@
 import { MetadataRoute } from "next";
 import { i18n } from "@/config/i18n-config";
-import { execSync } from "child_process";
-import { readdir, stat } from "fs/promises";
-import { join } from "path";
+import { execSync } from "node:child_process";
+import { readdir, stat } from "node:fs/promises";
+import { join } from "node:path";
 
 // Allow sitemap to be revalidated every hour (3600 seconds)
 export const revalidate = 3600;
@@ -105,7 +105,7 @@ async function scanPages(
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://seedance2.in";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://aiseedance.dev";
 
   // 自动扫描所有页面
   const appDir = join(process.cwd(), 'src', 'app', '[locale]');

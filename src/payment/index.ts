@@ -12,10 +12,11 @@ let _stripe: Stripe | null = null;
 
 export function getStripe(): Stripe {
   if (!_stripe) {
-    if (!env.STRIPE_API_KEY) {
-      throw new Error("STRIPE_API_KEY is not configured");
+    const secretKey = env.STRIPE_SECRET_KEY || env.STRIPE_API_KEY;
+    if (!secretKey) {
+      throw new Error("STRIPE_SECRET_KEY is not configured");
     }
-    _stripe = new Stripe(env.STRIPE_API_KEY, {
+    _stripe = new Stripe(secretKey, {
       typescript: true,
     });
   }

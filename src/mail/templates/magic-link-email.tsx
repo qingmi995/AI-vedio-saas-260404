@@ -63,5 +63,5 @@ MagicLinkEmail.PreviewProps = {
     },
   },
   name: "John Doe",
-  magicLink: "https://seedance2.in/auth/callback?token=abc123",
+  magicLink: "https://aiseedance.dev/auth/callback?token=abc123",
 };

@@ -76,7 +76,7 @@ export default async function PrivacyPage({
 
                         <h2>9. 联系我们</h2>
                         <p>
-                            如果您对本隐私政策有任何疑问，请联系我们：privacy@seedance2.in
+                            如果您对本隐私政策有任何疑问，请联系我们：privacy@aiseedance.dev
                         </p>
                     </>
                 ) : (
@@ -140,7 +140,7 @@ export default async function PrivacyPage({
 
                         <h2>9. Contact Us</h2>
                         <p>
-                            If you have any questions about this Privacy Policy, please contact us at: privacy@seedance2.in
+                            If you have any questions about this Privacy Policy, please contact us at: privacy@aiseedance.dev
                         </p>
                     </>
                 )}

@@ -35,7 +35,7 @@ export const ResetPasswordEmail = ({
   locale = "en",
   translations,
   resetUrl,
-  appUrl = "https://seedance2.in",
+  appUrl = "https://aiseedance.dev",
 }: ResetPasswordEmailProps) => {
   const currentYear = new Date().getFullYear();
 

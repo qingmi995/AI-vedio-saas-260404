@@ -28,7 +28,7 @@ export function PricingCards({
   const isYearlyDefault = true;
   const [isYearly, setIsYearly] = useState<boolean>(isYearlyDefault);
   const signInModal = useSigninModal();
-  const pricingData = priceDataMap[locale] || priceDataMap['en'];
+  const pricingData = priceDataMap[locale] || priceDataMap.en;
   const toggleBilling = () => {
     setIsYearly(!isYearly);
   };
@@ -133,9 +133,9 @@ export function PricingCards({
           Email{" "}
           <a
             className="font-medium text-primary hover:underline"
-            href="mailto:support@seedance2.in"
+            href="mailto:support@aiseedance.dev"
           >
-            support@seedance2.in
+            support@aiseedance.dev
           </a>{" "}
           {t('contact')}
           <br />

@@ -122,6 +122,15 @@ export function UserAuthForm({
               provider: "google",
               callbackURL: searchParams?.get("from") ?? `/${lang}/my-creations`,
             })
+            .then((result) => {
+              if (result?.error) {
+                throw result.error;
+              }
+              const url = result?.data?.url;
+              if (typeof url === "string") {
+                window.location.href = url;
+              }
+            })
             .catch((error) => {
               console.error("Google signIn error:", error);
               setIsGoogleLoading(false);

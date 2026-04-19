@@ -1,4 +1,5 @@
 import { customers, db } from "@/db";
+import { getProductById } from "@/config/credits";
 import { getCurrentUser } from "@/lib/auth";
 import { stripe } from "@/payment";
 import { pricingData } from "@/payment/subscriptions";
@@ -25,6 +26,49 @@ export type UserSubscriptionPlan = {
   interval: "month" | "year" | null;
   isCanceled?: boolean;
 };
+
+function getStripePriceIdForProduct(product: ReturnType<typeof getProductById>) {
+  if (!product) return null;
+  if (product.id.startsWith("price_")) return product.id;
+
+  const name = product.name.toLowerCase();
+
+  if (product.type === "subscription") {
+    const interval = product.billingPeriod === "year" ? "YEARLY" : "MONTHLY";
+
+    if (name.includes("basic")) {
+      return (
+        process.env[`NEXT_PUBLIC_STRIPE_BASIC_${interval}_PRICE_ID`] ||
+        process.env[`NEXT_PUBLIC_STRIPE_STD_${interval}_PRICE_ID`] ||
+        null
+      );
+    }
+
+    if (name.includes("pro")) {
+      return process.env[`NEXT_PUBLIC_STRIPE_PRO_${interval}_PRICE_ID`] || null;
+    }
+
+    if (name.includes("ultimate") || name.includes("team")) {
+      return (
+        process.env[`NEXT_PUBLIC_STRIPE_BUSINESS_${interval}_PRICE_ID`] || null
+      );
+    }
+  }
+
+  if (name.includes("starter")) {
+    return process.env.NEXT_PUBLIC_STRIPE_STARTER_PACK_PRICE_ID || null;
+  }
+
+  if (name.includes("standard")) {
+    return process.env.NEXT_PUBLIC_STRIPE_STANDARD_PACK_PRICE_ID || null;
+  }
+
+  if (name.includes("pro")) {
+    return process.env.NEXT_PUBLIC_STRIPE_PRO_PACK_PRICE_ID || null;
+  }
+
+  return null;
+}
 
 export async function createStripeSession(userId: string, planId: string) {
   const [customer] = await db
@@ -64,6 +108,56 @@ export async function createStripeSession(userId: string, planId: string) {
     cancel_url: returnUrl,
     success_url: returnUrl,
     line_items: [{ price: planId, quantity: 1 }],
+  });
+
+  if (!session.url) return { success: false as const, url: null };
+  return { success: true as const, url: session.url };
+}
+
+export async function createStripeProductCheckout(params: {
+  userId: string;
+  productId: string;
+  successUrl: string;
+  cancelUrl: string;
+}) {
+  const product = getProductById(params.productId);
+  if (!product) {
+    return { success: false as const, url: null };
+  }
+  const priceId = getStripePriceIdForProduct(product);
+  if (!priceId) {
+    return { success: false as const, url: null };
+  }
+
+  const user = await getCurrentUser();
+  if (!user?.email) {
+    return { success: false as const, url: null };
+  }
+
+  const session = await stripe.checkout.sessions.create({
+    mode: product.type === "subscription" ? "subscription" : "payment",
+    payment_method_types: ["card"],
+    customer_email: user.email,
+    client_reference_id: params.userId,
+    cancel_url: params.cancelUrl,
+    success_url: params.successUrl,
+    line_items: [{ price: priceId, quantity: 1 }],
+    metadata: {
+      userId: params.userId,
+      productId: product.id,
+      productType: product.type,
+      credits: String(product.credits),
+    },
+    subscription_data:
+      product.type === "subscription"
+        ? {
+            metadata: {
+              userId: params.userId,
+              productId: product.id,
+              credits: String(product.credits),
+            },
+          }
+        : undefined,
   });
 
   if (!session.url) return { success: false as const, url: null };

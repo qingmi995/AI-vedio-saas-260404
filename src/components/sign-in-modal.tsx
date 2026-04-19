@@ -31,15 +31,28 @@ export const SignInModalContent = ({ lang }: SignInModalContentProps) => {
   const handleSocialLogin = async (provider: "google") => {
     setSignInClicked(provider);
     try {
-      await authClient.signIn.social({
+      const result = await authClient.signIn.social({
         provider,
         callbackURL,
       });
+      if (result?.error) {
+        throw result.error;
+      }
+      const url = result?.data?.url;
+      if (typeof url === "string") {
+        window.location.href = url;
+      }
     } catch (error) {
       console.error(`${provider} signIn error:`, error);
       setSignInClicked(null);
+      const message =
+        error instanceof Error
+          ? error.message
+          : typeof error === "object" && error !== null && "message" in error
+            ? String(error.message)
+            : `Could not sign in with ${provider}. Please try again.`;
       toast.error("Login failed", {
-        description: `Could not sign in with ${provider}. Please try again.`,
+        description: message,
       });
     }
   };

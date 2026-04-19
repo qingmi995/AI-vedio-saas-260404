@@ -68,5 +68,5 @@ ResetPasswordEmail.PreviewProps = {
     },
   },
   name: "John Doe",
-  resetUrl: "https://seedance2.in/reset-password?token=abc123",
+  resetUrl: "https://aiseedance.dev/reset-password?token=abc123",
 };

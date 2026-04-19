@@ -5,7 +5,10 @@ import Balancer from "react-wrap-balancer";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useAction } from "next-safe-action/hooks";
 
+import { createStripeProductCheckoutAction } from "@/actions/stripe";
+import { isStripeProvider } from "@/config/billing-provider";
 import { creem } from "@/lib/auth/client";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -61,10 +64,14 @@ export function DarkPricing({
   const [hasAccess, setHasAccess] = useState(false);
   const [activeProductId, setActiveProductId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const { executeAsync: createStripeCheckout, status: stripeCheckoutStatus } =
+    useAction(createStripeProductCheckoutAction);
   const signInModal = useSigninModal();
   const { balance } = useCredits();
   const userPlan = balance?.plan || "FREE";
   const isFreeUser = !userPlan || userPlan === "FREE";
+  const isCheckoutPending =
+    isPending || stripeCheckoutStatus === "executing";
 
   // 组织产品数据
   const allSubscriptionProducts = useMemo(
@@ -111,6 +118,24 @@ export function DarkPricing({
       const successUrl = returnTo
         ? `${origin}/credits?payment=success&returnTo=${returnTo}`
         : `${origin}/credits?payment=success`;
+
+      if (isStripeProvider) {
+        const result = await createStripeCheckout({
+          productId: product.id,
+          successUrl,
+          cancelUrl: window.location.href,
+        });
+
+        if (!result?.data?.url) {
+          toast.error("Checkout error", {
+            description: "Failed to create Stripe checkout session.",
+          });
+          return;
+        }
+
+        window.location.href = result.data.url;
+        return;
+      }
 
       const { data, error } = await creem.createCheckout({
         productId: product.id,
@@ -233,7 +258,7 @@ export function DarkPricing({
                 isRecommended={isRecommended}
                 isCurrent={isCurrent}
                 userId={userId}
-                isPending={isPending}
+                isPending={isCheckoutPending}
                 isRestricted={isRestricted} // Pass restriction status
                 buyCreditsLabel={buyCreditsLabel}
                 dictPrice={dictPrice}
@@ -268,6 +293,7 @@ interface TabButtonProps {
 function TabButton({ active, children, onClick, showBadge }: TabButtonProps) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={cn(
         "relative rounded-md px-6 py-2.5 text-sm font-semibold transition-all duration-200",
@@ -383,6 +409,7 @@ function PricingCard({
         {userId ? (
           isCurrent ? (
             <button
+              type="button"
               onClick={onPortal}
               className={cn(
                 "w-full rounded-lg py-2.5 text-sm font-semibold transition-colors flex items-center justify-center gap-2",
@@ -400,6 +427,7 @@ function PricingCard({
                 <TooltipTrigger asChild>
                   <span className="w-full">
                     <button
+                      type="button"
                       disabled={isPending || isRestricted}
                       onClick={() => onCheckout(product)}
                       className={cn(
@@ -436,6 +464,7 @@ function PricingCard({
           )
         ) : (
           <button
+            type="button"
             onClick={signInModal.onOpen}
             className={cn(
               "w-full rounded-lg py-2.5 text-sm font-semibold transition-colors",

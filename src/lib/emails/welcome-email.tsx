@@ -37,7 +37,7 @@ export const WelcomeEmail = ({
   name = "",
   locale = "en",
   translations,
-  appUrl = "https://seedance2.in",
+  appUrl = "https://aiseedance.dev",
 }: WelcomeEmailProps) => {
   const currentYear = new Date().getFullYear();
 

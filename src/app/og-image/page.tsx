@@ -90,7 +90,7 @@ export default function OGImagePage() {
             letterSpacing: "0.05em",
           }}
         >
-          seedance2.in
+          aiseedance.dev
         </p>
       </div>
     </div>

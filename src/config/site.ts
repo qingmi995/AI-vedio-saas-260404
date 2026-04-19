@@ -25,7 +25,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Seedance2",
   description: "AI-powered short video creation platform - Create stunning videos with Sora 2, Veo 3.1, and more",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://seedance2.in",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://aiseedance.dev",
   ogImage: "/og.png",
   links: {},
   auth: {

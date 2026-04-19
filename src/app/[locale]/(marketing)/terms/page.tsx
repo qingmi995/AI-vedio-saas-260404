@@ -71,7 +71,7 @@ export default async function TermsPage({
 
                         <h2>10. 联系我们</h2>
                         <p>
-                            如果您对这些条款有任何疑问，请联系我们：support@seedance2.in
+                            如果您对这些条款有任何疑问，请联系我们：support@aiseedance.dev
                         </p>
                     </>
                 ) : (
@@ -130,7 +130,7 @@ export default async function TermsPage({
 
                         <h2>10. Contact Us</h2>
                         <p>
-                            If you have any questions about these Terms, please contact us at: support@seedance2.in
+                            If you have any questions about these Terms, please contact us at: support@aiseedance.dev
                         </p>
                     </>
                 )}

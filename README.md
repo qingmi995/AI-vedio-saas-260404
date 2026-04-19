@@ -127,7 +127,7 @@ DATABASE_URL='postgresql://user:pass@host:5432/db'
 
 # 认证
 BETTER_AUTH_SECRET='your-secret'
-NEXT_PUBLIC_APP_URL='http://localhost:3000'
+NEXT_PUBLIC_APP_URL='https://aiseedance.dev'
 GOOGLE_CLIENT_ID='your-google-client-id'
 GOOGLE_CLIENT_SECRET='your-google-client-secret'
 
@@ -136,12 +136,12 @@ STORAGE_ENDPOINT='https://your-r2-endpoint'
 STORAGE_ACCESS_KEY='your-access-key'
 STORAGE_SECRET_KEY='your-secret-key'
 STORAGE_BUCKET='your-bucket'
-STORAGE_DOMAIN='https://your-domain.com'
+STORAGE_DOMAIN='https://pub-xxx.r2.dev'
 
 # AI 提供商
 EVOLINK_API_KEY='your-evolink-key'
 KIE_API_KEY='your-kie-key'
-AI_CALLBACK_URL='https://your-domain.com/api/v1/video/callback'
+AI_CALLBACK_URL='https://aiseedance.dev/api/v1/video/callback'
 AI_CALLBACK_SECRET='your-callback-secret'
 
 # 支付 - Creem (主要)
@@ -153,7 +153,7 @@ STRIPE_API_KEY='your-stripe-key'
 STRIPE_WEBHOOK_SECRET='your-stripe-webhook-secret'
 
 # 邮件
-RESEND_FROM='noreply@yourdomain.com'
+RESEND_FROM='noreply@aiseedance.dev'
 ```
 
 ## 🔄 同步模板更新

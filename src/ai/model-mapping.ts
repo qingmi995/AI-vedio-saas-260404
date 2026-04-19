@@ -187,7 +187,7 @@ function kieParamsTransformer(
 
   // Transform common parameters
   if (params.aspectRatio) {
-    if (internalModelId === "veo-3.1") {
+    if (internalModelId === "veo-3.1" || internalModelId === "seedance-1.5-pro") {
       baseInput.aspect_ratio = params.aspectRatio;
     } else {
       baseInput.aspect_ratio = transformAspectRatio(params.aspectRatio, "kie");

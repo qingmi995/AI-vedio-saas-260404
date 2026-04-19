@@ -231,9 +231,9 @@ export function AceternityPricing({
               Email{" "}
               <a
                 className="font-medium text-primary hover:underline"
-                href="mailto:support@seedance2.in"
+                href="mailto:support@aiseedance.dev"
               >
-                support@seedance2.in
+                support@aiseedance.dev
               </a>{" "}
               {dictPrice.contact}
               <br />
@@ -260,6 +260,7 @@ interface TabButtonProps {
 function TabButton({ active, children, onClick, showBadge }: TabButtonProps) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={cn(
         "relative rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-200",

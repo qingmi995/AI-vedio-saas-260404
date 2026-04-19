@@ -123,7 +123,7 @@ export const headerTools = [
 export const headerDocs = {
   id: "docs",
   title: "Docs",
-  href: "https://docs.seedance2.in",
+  href: "https://docs.aiseedance.dev",
   external: true,
 };
 
